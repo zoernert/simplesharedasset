@@ -39,7 +39,7 @@ const erc20Token = new ethers.Contract(contractAddress, erc20ABI, provider);
 
 const render_tokenTotalSupply = function() {
   erc20Token.totalSupply().then(function(result) {
-      model.totalSupply=result.toString()*1;
+      model.totalSupply=result.toString()/100;
       render_addressValue();
   });
 }
@@ -67,7 +67,7 @@ const render_sharesOf = function() {
     model.account=address;
   }
   erc20Token.balanceOf(address).then(function(result) {
-    model.addressSupply=result.toString()*1;
+    model.addressSupply=result.toString()/100;
     model.account=""+address;
     console.log(address);
     render_addressValue();
