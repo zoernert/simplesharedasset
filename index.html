@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="STROMDAO - Sample Implementation">
+    <meta name="keywords" content="STROMDAO">
+    <meta name="author" content="STROMDAO UG">
+    <title>Simple Shared Asset Wallet</title>
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- endbuild -->
+  </head>
+
+  <body>
+         <div class="container" id="view">
+           <div style="padding-top:120px; text-align:left; display:none" id="view_login">
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                      </div>
+                      <button type="button" id="btn_login" class="btn btn-danger">Login</button>
+           </div>
+           <div style="padding-top:120px; text-align:left; display:none" id="view_status">
+                <h1>Asset:</h1><h2>{{ contractAddress }}</h2>
+                <table class="table table-condensed">
+                  <tr><th>Total Shares</th><td>{{ totalSupply }}</td></tr>
+                  <tr><th>Total Value</th><td>{{ totalValue }}</td></tr>
+                  <tr><th>Your Shares</th><td>{{ addressSupply }}</td></tr>
+                  <tr><th>Your Value</th><td>{{ addressValue }}</td></tr>
+                </table>
+           </div>
+
+         </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+           charset="utf-8"
+           type="text/javascript">
+   </script>
+    <!-- build:js -->
+    <script src="assets/js/main.js"></script>
+     <!-- endbuild -->
+  </body>
+
+</html>

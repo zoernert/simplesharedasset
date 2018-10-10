@@ -1,2 +1,1 @@
-# simplesharedasset
-Simple Shared Asset Wallet
+# Simple Shared Asset Wallet
