@@ -33,7 +33,7 @@ const render_totalValue = function() {
 }
 
 let model = {
-    address:"0x0",
+    account:"0x0",
     totalSupply:0,
     totalValue:0,
     addressSupply:0,
@@ -42,15 +42,18 @@ let model = {
 }
 
 const render_addressValue = function() {
-  model.addressValue=(model.addressSupply/mode.totalSupply)*model.totalValue;
+  model.addressValue=(model.addressSupply/model.totalSupply)*model.totalValue;
 }
 const render_sharesOf = function() {
   let address=contractAddress;
   if($.urlParam("a")!=null) {
     address=$.urlParam("a");
+    model.account=address;
   }
   erc20Token.balanceOf(address).then(function(result) {
     model.addressSupply=result.toString()*1;
+    model.account=""+address;
+    console.log(address);
     render_addressValue();
   });
 }
@@ -68,6 +71,7 @@ $( document ).ready(function() {
     data: model
   })
   if($.urlParam("a")!=null) {
+    update();
     $('#view_status').show();
     $('#view_login').hide();
   } else {

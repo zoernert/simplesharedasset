@@ -13,6 +13,11 @@
     <!-- build:css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- endbuild -->
+    <style>
+      h2 {
+        color:#a0a0a0;
+      }
+    </style>
   </head>
 
   <body>
@@ -29,6 +34,8 @@
                       <button type="button" id="btn_login" class="btn btn-danger">Login</button>
            </div>
            <div style="padding-top:120px; text-align:left; display:none" id="view_status">
+                <h1>Account:</h1><h2>{{ account }}</h2>
+                <hr/>
                 <h1>Asset:</h1><h2>{{ contractAddress }}</h2>
                 <table class="table table-condensed">
                   <tr><th>Total Shares</th><td>{{ totalSupply }}</td></tr>
@@ -37,10 +44,9 @@
                   <tr><th>Your Value</th><td>{{ addressValue }}</td></tr>
                 </table>
            </div>
-
          </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-   <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+   <script src="https://cdn.ethers.io/scripts/ethers-v3.min.js"
            charset="utf-8"
            type="text/javascript">
    </script>
