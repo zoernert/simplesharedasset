@@ -39,7 +39,7 @@ const erc20Token = new ethers.Contract(contractAddress, erc20ABI, provider);
 
 const render_tokenTotalSupply = function() {
   erc20Token.totalSupply().then(function(result) {
-      model.totalValue=result.toString()*1;
+      model.totalSupply=result.toString()*1;
       render_addressValue();
   });
 }
