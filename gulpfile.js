@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 
 gulp.task("concatScripts", function() {
 	return gulp.src([
-		'assets/js/vendor/jquery-3.3.1.slim.min.js',
+		'assets/js/vendor/jquery-3.3.1.min.js',
 		'assets/js/vendor/popper.min.js',
 		'assets/js/vendor/bootstrap.min.js',
 		'assets/js/vendor/ethers-v4.min.js',
