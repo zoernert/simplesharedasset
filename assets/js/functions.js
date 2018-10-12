@@ -10,11 +10,15 @@ $.urlParam = function(name){
 
 let sourceReading = function() {
   return new Promise(function(resolve, reject) {
-    let res= {
-      timestamp:new Date().getTime(),
-      value:0.0135372
-    };
-    resolve(res);
+    $.get("/data/ijJtx7dtD39oSZC/download",function(data) {
+        data=data.substr(data.indexOf('\n')+1);
+        let res={
+          timestamp:data.substr(0,data.indexOf(',')),
+          value:data.substr(data.indexOf(',')+1)
+        }
+        res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
+        resolve(res);
+    });    
   });
 }
 
