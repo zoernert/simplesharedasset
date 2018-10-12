@@ -35,7 +35,7 @@ let sourceReading = function() {
 }
 
 let sharesResourceDownload = function() {
-  $.get("https://stromdao.de/nextcloud/index.php/s/ijJtx7dtD39oSZC/download",function(data) {
+  $.get("/data/ijJtx7dtD39oSZC/download",function(data) {
     console.log(data);
   })
 }
