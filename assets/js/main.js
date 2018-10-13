@@ -26,6 +26,7 @@ $.urlParam = function(name){
 
 let sourceReading = function() {
   return new Promise(function(resolve, reject) {
+    if(location.hostname=="zimbabwe.corrently.com") {
     $.get("/data/ijJtx7dtD39oSZC/download",function(data) {
         data=data.substr(data.indexOf('\n')+1);
         let res={
@@ -37,6 +38,19 @@ let sourceReading = function() {
         render_addressValue();
         resolve(res);
     });
+  } else {
+    $.get("/latest.csv",function(data) {
+        data=data.substr(data.indexOf('\n')+1);
+        let res={
+          timestamp:data.substr(0,data.indexOf(',')),
+          value:data.substr(data.indexOf(',')+1)*1
+        }
+        // Following line removed due to *1
+        //res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
+        render_addressValue();
+        resolve(res);
+    });
+  }
   });
 }
 
@@ -59,6 +73,7 @@ const render_tokenTotalSupply = function() {
 const render_totalValue = function() {
     sourceReading().then(function(l) {
       model.totalValue=l.value*1;
+      model.dataconsensus=l.timestamp;
       render_addressValue();
     });
 }
@@ -69,6 +84,7 @@ let model = {
     totalValue:0,
     addressSupply:0,
     addressValue:0,
+    dataconsensus:"tbd",
     contractAddress:contractAddress
 }
 
