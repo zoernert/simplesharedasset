@@ -35,6 +35,7 @@ let sourceReading = function() {
         }
         // Following line removed due to *1
         //res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
+        model.dataconsensus=res.timestamp;
         render_addressValue();
         resolve(res);
     });
@@ -48,6 +49,8 @@ let sourceReading = function() {
         // Following line removed due to *1
         //res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
         render_addressValue();
+        model.dataconsensus=res.timestamp;
+        console.log(res);
         resolve(res);
     });
   }
@@ -72,6 +75,7 @@ const render_tokenTotalSupply = function() {
 
 const render_totalValue = function() {
     sourceReading().then(function(l) {
+        console.log(l);
       model.totalValue=l.value*1;
       model.dataconsensus=l.timestamp;
       render_addressValue();
