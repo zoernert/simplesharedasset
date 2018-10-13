@@ -16,7 +16,8 @@ let sourceReading = function() {
           timestamp:data.substr(0,data.indexOf(',')),
           value:data.substr(data.indexOf(',')+1)*1
         }
-        res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
+        // Following line removed due to *1
+        //res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
         render_addressValue();
         resolve(res);
     });
