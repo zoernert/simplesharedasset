@@ -28,8 +28,7 @@ let sourceReading = function() {
   return new Promise(function(resolve, reject) {
     if(location.hostname=="zimbabwe.corrently.com") {
     $.getJSON("/data/poke.php?get=0x3b492fd59daa66904a101f90cd9aeed4a5723631",function(res) {
-              
-
+        console.log(res);
         model.dataconsensus=res.timestamp;
         render_addressValue();
         resolve(res);
