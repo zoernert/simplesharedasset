@@ -12,6 +12,7 @@ let sourceReading = function() {
   return new Promise(function(resolve, reject) {
     if(location.hostname=="zimbabwe.corrently.com") {
     $.getJSON("/data/poke.php?get=0x3b492fd59daa66904a101f90cd9aeed4a5723631",function(res) {
+        console.log("Production Data");
         console.log(res);
         model.dataconsensus=res.timestamp;
         render_addressValue();
@@ -24,8 +25,7 @@ let sourceReading = function() {
           timestamp:data.substr(0,data.indexOf(',')),
           value:data.substr(data.indexOf(',')+1)*1
         }
-        // Following line removed due to *1
-        //res.value=res.value.substr(0,res.value.indexOf('\n'))*1;
+        console.log("Development Data");        
         render_addressValue();
         model.dataconsensus=res.timestamp;
         console.log(res);
