@@ -84,7 +84,7 @@ let model = {
 }
 
 const render_addressValue = function() {
-  model.addressValue=(((model.addressSupply/model.totalSupply)*model.totalValue)/1000).toFixed(3);
+  model.addressValue=(((model.addressSupply/model.totalSupply)*model.totalValue)/1).toFixed(3);
 }
 const render_sharesOf = function() {
   let address=contractAddress;
