@@ -28,7 +28,7 @@ let sourceReading = function() {
   return new Promise(function(resolve, reject) {
     if(location.hostname=="zimbabwe.corrently.com") {
     $.getJSON("/data/poke.php?get=0x3b492fd59daa66904a101f90cd9aeed4a5723631",function(res) {
-        console.log("Production Data");
+        console.log("Production Data",res);
         model.dataconsensus=new Date(res.timestamp).toLocaleString();
         render_addressValue();
         resolve(res);
@@ -42,7 +42,7 @@ let sourceReading = function() {
         }
         console.log("Development Data");
         render_addressValue();
-        model.dataconsensus=new Date(res.timestamp).toLocaleString();        
+        model.dataconsensus=new Date(res.timestamp).toLocaleString();
         resolve(res);
     });
   }
@@ -67,8 +67,8 @@ const render_tokenTotalSupply = function() {
 
 const render_totalValue = function() {
     sourceReading().then(function(l) {
-      model.totalValue=l.value*1;
-      model.dataconsensus=l.timestamp;
+      model.totalValue=(l.value/1000).toFixed(3);
+      //model.dataconsensus=l.timestamp;
       render_addressValue();
     });
 }
