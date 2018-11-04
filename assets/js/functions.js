@@ -52,6 +52,7 @@ const render_tokenTotalSupply = function() {
 const render_totalValue = function() {
     sourceReading().then(function(l) {
       model.totalValue=(l.value/1000).toFixed(3);
+      document.title=   model.totalValue + "kWh Sonnenstrom in Zimbabwe dank Blockchain - Corrently - STROMDAO";
       //model.dataconsensus=l.timestamp;
       render_addressValue();
     });
