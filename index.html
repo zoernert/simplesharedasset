@@ -22,18 +22,6 @@
 
   <body>
          <div class="container" id="view">
-           <div style="padding-top:120px; text-align:left; display:none" id="view_login">
-                      <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control">
-                      </div>
-                      <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control">
-                      </div>
-                      <button type="button" id="btn_login" class="btn btn-danger">Login</button>
-           </div>
-           <div style="padding-top:120px; text-align:left; display:none" id="view_status">
              <img src="assets/img/header.png" class="img-fluid" alt="Responsive image" style="margin-bottom:15px;">
               <div class="row">
                   <div class="col-9">
@@ -114,20 +102,39 @@
                         </p>
                   </div>
                   <div class="col-3">
-                    <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
-                      <div class="card-header">Sie sind dabei</div>
-                      <div class="card-body">
-                        <p class="card-text">
-                          <table class="table table-condensed">
-                            <tr><th>Gesamt Anteile</th><td>{{ totalSupply }}</td></tr>
-                            <tr><th>Gesamt Erzeugung</th><td>{{ totalValue }} kWh</td></tr>
-                            <tr><th>Ihre Anteile</th><td>{{ addressSupply }}</td></tr>
-                            <tr><th>Ihre Erzeugung</th><td>{{ addressValue }} kWh</td></tr>
-                            <tr><th>Stand</th><td>{{ dataconsensus }}</td></tr>
-                          </table>
-                        </p>
-                      </div>
+                    <div style="text-align:left; display:none" id="view_login">
+                      <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Sie sind dabei</div>
+                        <div class="card-body">
+                          <p class="card-text">
+                               <div class="form-group">
+                                 <label for="username">Benutzernamen</label>
+                                 <input type="text" name="username" id="username" class="form-control">
+                               </div>
+                               <div class="form-group">
+                                 <label for="password">Passwort</label>
+                                 <input type="password" name="password" id="password" class="form-control">
+                               </div>
+                               <button type="button" id="btn_login" class="btn btn-danger">Anmelden</button>
+                             </p>
+                           </div>
+                         </div>
                     </div>
+                    <div style="text-align:left; display:none" id="view_status">
+                      <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Sie sind dabei</div>
+                        <div class="card-body">
+                          <p class="card-text">
+                            <table class="table table-condensed">
+                              <tr><th>Gesamt Anteile</th><td>{{ totalSupply }}</td></tr>
+                              <tr><th>Gesamt Erzeugung</th><td>{{ totalValue }} kWh</td></tr>
+                              <tr><th>Ihre Anteile</th><td>{{ addressSupply }}</td></tr>
+                              <tr><th>Ihre Erzeugung</th><td>{{ addressValue }} kWh</td></tr>
+                              <tr><th>Stand</th><td>{{ dataconsensus }}</td></tr>
+                            </table>
+                          </p>
+                        </div>
+                      </div>
                   </div>
               </div>
                 <img src="assets/img/foerderung.png"  class="img-fluid"/>
